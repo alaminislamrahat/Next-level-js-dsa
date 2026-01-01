@@ -8,14 +8,14 @@ class Stack {
     }
 
     pop() {
-        if (this.isEmpty) {
+        if (this.isEmpty()) {
             return undefined;
         }
         return this.items.pop()
     }
 
     peek() {
-        if (this.isEmpty) {
+        if (this.isEmpty()) {
             return undefined;
         }
         return this.items[this.items.length - 1]
@@ -27,9 +27,21 @@ class Stack {
 
 
     print(){
-        console.log(this.items)
+        console.log(this.items.join("=>"))
     }
 }
 
 
 const stack = new Stack();
+
+console.log(stack.peek())
+console.log(stack.isEmpty());
+
+stack.push(10)
+stack.push(20)
+stack.push(30)
+
+stack.print()
+
+console.log(stack.peek())
+console.log(stack.pop())
