@@ -1,3 +1,6 @@
+//? Lifo
+
+
 class Stack {
     constructor() {
         this.items = [];
