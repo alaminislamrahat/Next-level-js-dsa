@@ -25,6 +25,8 @@ class LinkedList {
             this.tail.next = newNode;
             this.tail = newNode;
         }
+
+        this.length++;
     }
 
     prepend(){}
@@ -33,8 +35,27 @@ class LinkedList {
 
     remove(){}
 
-    print(){}
+    print(){
+
+        const arr = [];
+
+        let currentNode = this.head;
+        while(currentNode !== null){
+            arr.push(currentNode.value);
+            currentNode = currentNode.next;
+        }
+
+        console.log(arr.join(" --> "), "--> null")
+    }
 }
+
+
+const linkedList = new LinkedList();
+linkedList.append(1)
+linkedList.append(2)
+linkedList.append(3)
+
+linkedList.print()
 
 // const head = new Node(10);
 // head.next = new Node(20)
