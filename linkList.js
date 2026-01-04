@@ -76,7 +76,33 @@ class LinkedList {
 
     }
 
-    remove() { }
+    remove(index) {
+
+
+        if(index === 0){
+
+            const removedItem = this.head.value;
+            this.head = this.head.next;
+
+            if(this.length === 0){
+                this.tail = null;
+            }
+
+            this.length--
+            return removedItem;
+        }
+
+
+        const leadingNode = this._traverseToIndex(index - 1);
+        const nodeToRemove = leadingNode.next;
+        leadingNode.next = nodeToRemove.next;
+
+        if(leadingNode.next === null){
+            this.tail = leadingNode;
+        }
+
+        return nodeToRemove.value;
+     }
 
     //* private helper method
     _traverseToIndex(index) {
@@ -107,12 +133,16 @@ class LinkedList {
 
 
 const linkedList = new LinkedList();
-linkedList.append(0)
-linkedList.append(1)
-linkedList.append(3)
 
-linkedList.insert(2,200)
 
+linkedList.append("D")
+
+linkedList.print()
+
+
+
+
+linkedList.remove(0)
 
 linkedList.print()
 
